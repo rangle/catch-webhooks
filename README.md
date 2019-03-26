@@ -7,9 +7,9 @@ and is preserved to localStorage, and logging on the server-side.
 
 ## Launch
 To make the app available externally for webhooks, you can use ngrok.
-With ngrok, you can open a path with `ngrok http 3000`
+With ngrok, you can open a path with `ngrok http 3003`
 
-Currently, the backend and frontend run on separate ports.  Here is how
+Currently, the backend and frontend run on separate ports (frontend: 3000, backend: 3003).  Here is how
 you start both:
 
 ```
