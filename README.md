@@ -7,7 +7,6 @@ and is preserved to localStorage, and logging on the server-side.
 
 ## Launch
 To make the app available externally for webhooks, you can use ngrok.
-With ngrok, you can open a path with `ngrok http 3003`
 
 Currently, the backend and frontend run on separate ports (frontend: 3000, backend: 3003).  Here is how
 you start both:
@@ -19,7 +18,9 @@ yarn start
 ```
 
 This should launch a dev server and open your browser to http://localhost:3000
-
+Next, you'll want to expose the backend server, which you can do with as follows: `ngrok http 3003`
+which will give you an internet routable URL that you can use for configuring your webhooks with
+the external service.
 
 ## Supported webhooks
 
