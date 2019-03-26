@@ -24,12 +24,12 @@ the external service.
 ## Supported webhooks
 
 Any POST webhook that matches the path `/webhook*` will be picked up.
-For example, if your ngrok server running at http://9d0164da.ngrok.io, then you can immediately use an arbitrary number of webhook endpoints like the following, without having to make any code or configuration changes:
+For example, suppose your ngrok server was started and had opened a route to your server through http://00000000.ngrok.io (your address will be different than this), then you can immediately use an arbitrary number of webhook endpoints like the following, without having to make any code or configuration changes:
 
 ```
-http://9d0164da.ngrok.io/webhook
-http://9d0164da.ngrok.io/webhook/success
-http://9d0164da.ngrok.io/webhook/failure
-http://9d0164da.ngrok.io/webhook/foo
+http://00000000.ngrok.io/webhook
+http://00000000.ngrok.io/webhook/success
+http://00000000.ngrok.io/webhook/failure
+http://00000000.ngrok.io/webhook/foo
 etc..
 ```
