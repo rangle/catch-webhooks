@@ -11,7 +11,7 @@ const Input = styled.textarea`
 `
 
 const SummaryInput = ({onChange, value}) => {
-  return (<Input type='text' cols={60} placeholder="notes" onChange={onChange} value={value}></Input>)
+  return (<Input type='text' cols={40} placeholder="notes" onChange={onChange} value={value}></Input>)
 }
 
 export default SummaryInput
