@@ -24,7 +24,7 @@ This should launch a dev server and open your browser to http://localhost:3000
 ## Supported webhooks
 
 Any POST webhook that matches the path `webhook*` will be picked up.
-For example, if your ngrok server running at http://9d0164da.ngrok.io, then you can create an arbitrary number of webhook endpoints like the following:
+For example, if your ngrok server running at http://9d0164da.ngrok.io, then you can immediately use an arbitrary number of webhook endpoints like the following, without having to make any code or configuration changes:
 
 ```
 http://9d0164da.ngrok.io/webhook
