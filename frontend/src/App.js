@@ -21,11 +21,20 @@ const Button = styled.button`
   box-shadow: 1px 1px 4px #888;
   margin-top:1em;
   cursor:pointer;
+  height: 4em;
 `
 
 const FlexCenter = styled.div`
   display: flex;
   justify-content: center;
+`
+
+const Title = styled.div`
+  font-size: 2em;
+  font-family: Open Sans, Arial;
+  margin: 0em 1em;
+  color: #999;
+  padding-top: .5em;
 `
 
 const app = ({ 
@@ -60,6 +69,7 @@ const app = ({
   return (
     <div className="App">
       <FlexCenter>
+        <Title>Webhook Catcher</Title>
         <Button type="text" onClick={onClear}>Clear</Button>
       </FlexCenter>
       <VerticalTimeline layout={'2-columns'}>
