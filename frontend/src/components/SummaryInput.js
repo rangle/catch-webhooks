@@ -7,11 +7,12 @@ const Input = styled.textarea`
   border: 1px solid #DDD;
   padding: .25em;
   border-radius:.25em;
-  margin: .5em 0;
+  margin: .5em 0 2em 0;
+  background-color: rgba(255, 255, 255, 0.4);
 `
 
 const SummaryInput = ({onChange, value}) => {
-  return (<Input type='text' cols={40} placeholder="notes" onChange={onChange} value={value}></Input>)
+  return (<Input type='text' cols={50} rows={3} placeholder="" onChange={onChange} value={value}></Input>)
 }
 
 export default SummaryInput

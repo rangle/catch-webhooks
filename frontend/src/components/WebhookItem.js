@@ -6,6 +6,10 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import styled from 'styled-components'
 
 
+const EventReceived = styled.span`
+  color: #777;
+`
+
 const CustomVerticalTimelineElement = styled(VerticalTimelineElement)`
   .vertical-timeline-element-content {
     box-shadow: 2px 4px 8px 2px rgba(50, 50, 93, 0.15), 3px 5px 10px 3px rgba(112, 157, 199, 0.15);
@@ -30,6 +34,7 @@ const WebhookItem = ({index, date, json, title, summary, onTitleChange, onSummar
     <CustomVerticalTimelineElement
           key={index}
           date={date ? date.toString() : ""}>
+        <EventReceived>event received</EventReceived>
         <TitleInput   onChange={ onChangeTitle }   value={title} />
         <SummaryInput onChange={ onChangeSummary } value={summary} />
         <div>
