@@ -9,6 +9,8 @@ const server = require('http').createServer(app);
 const wss = new WebSocket.Server({ server });
 
 const port = 3003
+const STATIC_DIR = __dirname + '/frontend/build'
+
 
 let socket = null;
 
@@ -27,7 +29,7 @@ app.post('/webhook*', (req, res) => {
     res.sendStatus(200)
 })
 
-app.use(express.static('frontend/build'))
+app.use(express.static(STATIC_DIR))
 
 wss.on('connection', (ws) => {
     console.log("webhook connection established")
