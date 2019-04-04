@@ -6,11 +6,12 @@ and is preserved to localStorage, and logging on the server-side.
 
 ## Launch
 
-Prerequisite:  You must have `ngrok` installed.  Install with: `npm i -g ngrok`
+Prerequisite:  You must have `ngrok` and `npx` installed.  Install with: `npm i -g ngrok npx`
 
 ```
-yarn start
+npx catch-webhooks
 ```
+
 Note: This uses port 3003!
 
 The output will give you a public HTTPS URL as a destination for the webhooks (read the next section).
