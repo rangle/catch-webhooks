@@ -7,24 +7,22 @@ and is preserved to localStorage, and logging on the server-side.
 ## Launch
 To make the app available externally for webhooks, you can use ngrok.
 
-Currently, the backend and frontend run on separate ports (frontend: 3000, backend: 3003).  Here is how
-you start both:
 
 ```
 yarn start
-cd frontend
-yarn start
 ```
+Note: This uses port 3003!
 
-This should launch a dev server and open your browser to http://localhost:3000
-Next, you'll want to expose the backend server, which you can do with as follows: `ngrok http 3003`
-which will give you an internet routable URL that you can use for configuring your webhooks with
-the external service.
+The output will give you a public HTTPS URL as a destination for the webhooks (read the next section).
 
-## Supported webhooks
+## Webhooks
 
 Any POST webhook that matches the path `/webhook*` will be picked up.
-For example, suppose your ngrok server was started and had opened a route to your server through http://00000000.ngrok.io (your address will be different than this), then you can immediately use an arbitrary number of webhook endpoints like the following, without having to make any code or configuration changes:
+
+Give the public URL and the desired path that is prefixed with `/webhook` to the external web service as the location where it should send its webhooks.
+The webhooks that are captured will appear in your browser, which you can open at http://localhost:3003
+
+For example, suppose your server was started with a public URL of http://00000000.ngrok.io (your address will be different than this), then you can immediately hand out an arbitrary number of webhook endpoints like the following, without having to make any code or configuration changes:
 
 ```
 http://00000000.ngrok.io/webhook
