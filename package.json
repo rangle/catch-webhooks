@@ -1,5 +1,5 @@
 {
-  "name": "webhook",
+  "name": "catch-webhooks",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
