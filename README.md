@@ -5,8 +5,8 @@ and is preserved to localStorage, and logging on the server-side.
 
 
 ## Launch
-To make the app available externally for webhooks, you can use ngrok.
 
+Prerequisite:  You must have `ngrok` installed.  Install with: `npm i -g ngrok`
 
 ```
 yarn start
