@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const express = require('express')
 const prettyjson = require('prettyjson')
 const WebSocket = require('ws')
