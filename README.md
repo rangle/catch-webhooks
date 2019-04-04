@@ -1,4 +1,4 @@
-# Webhook Catcher with UI
+# catch-webhooks
 
 A sink for webhooks that produce JSON, with a UI that can be annotated 
 and is preserved to localStorage, and logging on the server-side.
