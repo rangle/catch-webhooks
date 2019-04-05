@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { VerticalTimeline } from 'react-vertical-timeline-component';
 import './App.css';
 import { jsonReceivedAction, setWebhookTitleAction, setWebhookSummaryAction, clearAllAction } from './store/store'
 import { connect } from 'react-redux'
 import WebhookItem from "./components/WebhookItem"
 import styled from 'styled-components'
+import axios from 'axios'
 
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -23,6 +24,11 @@ const Button = styled.button`
   cursor:pointer;
   height: 4em;
 `
+ 
+const HelpHint = styled.span`
+  margin-top: 1em;
+  color: #888;
+`
 
 const FlexCenter = styled.div`
   display: flex;
@@ -30,12 +36,16 @@ const FlexCenter = styled.div`
 `
 
 const Title = styled.div`
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: Open Sans, Arial;
   margin: 0em 1em;
   color: #999;
-  padding-top: .5em;
+  padding-top: 1em;
 `
+
+
+
+
 
 const app = ({ 
   dispatchJsonReceived,
@@ -45,15 +55,26 @@ const app = ({
   events 
 }) => {
 
+  const [url, setURL] = useState({ url: null })
+  
   ws.onopen = () => {
-    console.log("Opened")
-    
     ws.onmessage = (ev) => {
       dispatchJsonReceived(JSON.parse(ev.data))
       console.log("Received ", ev.data)
     }
   };
 
+  useEffect(() => {
+    const loadPublicURL = async () => {
+      try {
+        setURL((await axios.get("/url")).data)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    loadPublicURL()
+  }, [])
+  
   const items = []
   for (const [idx, event] of events.entries()) {
     items.push(
@@ -66,11 +87,15 @@ const app = ({
       />
     )
   }
+  console.log(url)
   return (
     <div className="App">
       <FlexCenter>
         <Title>Webhook Catcher</Title>
         <Button type="text" onClick={onClear}>Clear</Button>
+      </FlexCenter>
+      <FlexCenter>
+        <HelpHint>Use this pattern for your webhook URLs: {url.url}/webhook/*</HelpHint>
       </FlexCenter>
       <VerticalTimeline layout={'2-columns'}>
         {items}
@@ -89,8 +114,8 @@ export default connect(
       dispatch(clearAllAction())
       event.preventDefault()
     },
-    onTitleChange : (index, text) => dispatch(setWebhookTitleAction(index, text)),
+    onTitleChange :   (index, text) => dispatch(setWebhookTitleAction(index, text)),
     onSummaryChange : (index, text) => dispatch(setWebhookSummaryAction(index, text)),
-    dispatchJsonReceived : json => dispatch(jsonReceivedAction(json))
+    dispatchJsonReceived :     json => dispatch(jsonReceivedAction(json))
   })
 )(app)

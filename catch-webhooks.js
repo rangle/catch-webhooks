@@ -11,6 +11,9 @@ const wss = new WebSocket.Server({ server });
 const port = 3003
 const STATIC_DIR = __dirname + '/frontend/build'
 
+let url = {
+    url : null
+};
 
 let socket = null;
 
@@ -29,7 +32,12 @@ app.post('/webhook*', (req, res) => {
     res.sendStatus(200)
 })
 
-app.use(express.static(STATIC_DIR))
+app.use(express.static(STATIC_DIR));
+
+app.get('/url', (_, res) => {
+    res.send({url: url.url})
+})
+
 
 wss.on('connection', (ws) => {
     console.log("webhook connection established")
@@ -42,14 +50,18 @@ server.listen(port, () => console.log(`Listening on port ${port}!`));
 
 (async () => {
     try {
-        const url = await ngrok.connect({
+        url.url = await ngrok.connect({
             proto: 'http',
             addr: port
         });
-        console.log(`\nThe webhook catcher is live!\n`)
-        console.log(`    local URL:  http://localhost:${port}`)
-        console.log(`    public URL:`, url)
-        console.log(`\n    Use the public URL above to configure with the 3rd party service that's generating the webhooks\n`)
+        console.log(`\n`)
+        console.log('\n  -=-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.=-')
+        console.log(`\n      The webhook catcher is live!\n`)
+        console.log(`\n     - Send webhooks here:  ${url.url}/webhook`)
+        console.log(`     - View them here:      ${url.url}/`)
+        console.log(`\n\t   :D `)
+        console.log('\n  -=-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.=-')
+        console.log(`\n`)
     } catch (e) {
         console.log(e)
     }
