@@ -40,7 +40,7 @@ app.get('/url', (_, res) => {
 
 
 wss.on('connection', (ws) => {
-    console.log("webhook connection established")
+    console.log("websocket connection established")
     socket = ws
 });
 
