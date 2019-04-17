@@ -9,8 +9,8 @@ import axios from 'axios'
 
 import 'react-vertical-timeline-component/style.min.css';
 
-const ws = new WebSocket(`ws://localhost:${process.env.REACT_APP_WS_PORT}`);
-
+// const ws = new WebSocket(`ws://${window.location.host}`);
+const ws = new WebSocket(((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.host);
 
 const Button = styled.button`
   padding:1em;
