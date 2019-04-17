@@ -7,9 +7,16 @@ const ngrok = require('ngrok')
 const app = express()
 const server = require('http').createServer(app);
 const wss = new WebSocket.Server({ server });
-
-const port = 3003
 const STATIC_DIR = __dirname + '/frontend/build'
+
+
+// Set the port
+let port = 3003
+if (process.argv.length > 2) {
+    port = parseInt(process.argv[2])
+}
+
+
 
 let url = {
     url : null

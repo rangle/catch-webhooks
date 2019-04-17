@@ -12,7 +12,8 @@ Prerequisite:  You must have `ngrok` and `npx` installed.  Install with: `npm i 
 npx catch-webhooks
 ```
 
-Note: This uses port 3003!
+This will use port 3003.  If you need it to use a different port because it's already allocated, you can use the alternate
+form `npx catch-webhooks [port]`
 
 The output will give you a public HTTPS URL as a destination for the webhooks (read the next section).
 
