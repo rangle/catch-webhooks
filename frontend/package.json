@@ -10,7 +10,7 @@
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
     "react-vertical-timeline-component": "^2.3.1",
-    "redux": "^4.0.1",
+    "redux": "^4.0.5",
     "redux-persist": "^5.10.0",
     "styled-components": "^4.2.0"
   },
