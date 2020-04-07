@@ -12,7 +12,7 @@
     "react-vertical-timeline-component": "^2.3.1",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "REACT_APP_WS_PORT=3003 react-scripts start",
