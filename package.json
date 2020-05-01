@@ -7,12 +7,16 @@
     "express": "^4.16.4",
     "ngrok": "^3.1.1",
     "prettyjson": "^1.2.1",
-    "ws": "^6.2.0"
+    "ws": "^6.2.0",
+    "snyk": "^1.316.1"
   },
   "scripts": {
-    "start": "node catch-webhooks.js"
+    "start": "node catch-webhooks.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bin": {
     "catch-webhooks": "catch-webhooks.js"
-  }
+  },
+  "snyk": true
 }
