@@ -8,7 +8,7 @@
     "react-dom": "^16.8.4",
     "react-json-view": "^1.19.1",
     "react-redux": "^6.0.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.4.3",
     "react-vertical-timeline-component": "^2.3.1",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
